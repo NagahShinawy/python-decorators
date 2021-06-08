@@ -4,6 +4,12 @@ created by Nagaj at 08/06/2021
 
 
 def validate_str(function):
+    """
+       validate string
+       :param function: value of string
+       :return: valid string not empty or at least 3 chars
+    """
+
     def wrapper(*arg, **kwargs):
         string = function(*arg, **kwargs)
         if string == "":

@@ -13,6 +13,12 @@ MONTH_DAYS = 30
 
 
 def days_to_month(function):
+    """
+    convert days to months
+    :param function: any function that return int as days
+    :return:
+    """
+
     def wrapper(_date):
         days: int = function(_date)
         months = days // MONTH_DAYS
@@ -23,6 +29,12 @@ def days_to_month(function):
 
 
 def days_to_weeks(function):
+    """
+        convert days to weeks
+        :param function: any function that return int as days
+        :return:
+    """
+
     def wrapper(*args, **kwargs):
         days: int = function(*args, **kwargs)
         weeks = days // WEEK_DAYS
@@ -33,6 +45,12 @@ def days_to_weeks(function):
 
 
 def validate_quarter(function):
+    """
+        check if int valid Q [1, 2, 3, 4]
+        :param function: any function that return int as Q
+        :return:
+    """
+
     def wrapper(*arg, **kwargs):
         quarter: int = function(*arg, **kwargs)
         if 1 <= quarter <= 4:
@@ -43,6 +61,12 @@ def validate_quarter(function):
 
 
 def validate_month(function):
+    """
+         check if int valid month from 1 to 12
+        :param function: any function that return int as month
+        :return:
+    """
+
     def wrapper(*arg, **kwargs):
         month: int = function(*arg, **kwargs)
         if 1 <= month <= 12:
