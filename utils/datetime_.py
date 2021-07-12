@@ -12,11 +12,11 @@ WEEK_DAYS = 7
 MONTH_DAYS = 30
 
 
-def days_to_month(function):
+def days_to_months(function):
     """
     convert days to months
     :param function: any function that return int as days
-    :return:
+    :return: months and remaining days
     """
 
     def wrapper(_date):
@@ -32,7 +32,7 @@ def days_to_weeks(function):
     """
         convert days to weeks
         :param function: any function that return int as days
-        :return:
+        :return: weeks and remaining days
     """
 
     def wrapper(*args, **kwargs):
@@ -71,6 +71,6 @@ def validate_month(function):
         month: int = function(*arg, **kwargs)
         if 1 <= month <= 12:
             return month
-        raise ValueError("Month must be from 1 to 4 , got {}".format(month))
+        raise ValueError("Month must be from 1 to 12, got {}".format(month))
 
     return wrapper
