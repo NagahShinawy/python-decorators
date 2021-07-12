@@ -1,2 +1,0 @@
-# you can pass function as input to another function
->> help(function)

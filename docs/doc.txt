@@ -1,0 +1,3 @@
+# you can pass function as input to another function
+>> help(function)
+# using function within function, is the basic of decorators
