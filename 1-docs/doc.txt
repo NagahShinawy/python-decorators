@@ -1,3 +1,63 @@
 # you can pass function as input to another function
 >> help(function)
 # using function within function, is the basic of decorators
+
+
+=======================================
+Decorators run before function it is decorating is called?
+
+I believe python decorators are just syntactic sugar.
+
+@foo
+def bar ():
+    pass
+is the same thing as
+
+def bar ():
+    pass
+bar = foo(bar)
+
+As you can see, foo is being called even though bar has not been called.
+This is why you see the output from your decorator function.
+Your output should contain a single line for every function you applied your decorator to.
+
+============================
+
+def upper(function):
+    print("testing", function)
+
+    def wrapper():
+        text = function()
+        return text.upper()
+
+    return wrapper
+
+
+def username():
+    return "john"
+
+
+
+#1 if you use decorator using '@' it converts to something line above and python runs line like below
+# WITHOUT RUNS FROM YOU. IT RUNS AUTOMATICALLY
+
+upper_name = upper(username)  # testing <function username at 0x0000022A2991CEE8>
+
+#2 next step from you to actually run function
+upper_name  # <function upper.<locals>.wrapper at 0x0000022A2991CF78>
+upper_name()   # JOHN
+
+===============================================
+
+@to_bold_tag
+@to_italic_tag
+def get_user_name():
+    """
+    user name
+    :return:
+    """
+    return "Smith"
+
+
+- function docs comes from last decorator written so, in this case from bold
+- to update

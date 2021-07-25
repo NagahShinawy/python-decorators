@@ -2,7 +2,6 @@ from functools import wraps
 
 
 def make_posh(function):
-
     def wrapper():
         """
         make it beautiful [wrapper function]
@@ -27,14 +26,17 @@ def beauty_name(func):
         uname = func()
         return f"<{uname}>"
 
+    # without these 2 lines,
+    # help will show __name__ & __doc__ for wrapper not original function that is using decorators
     wrapper.__name__ = func.__name__
     wrapper.__doc__ = func.__doc__
     return wrapper
 
 
 def to_upper(func):
-
-    @wraps(func)  # works like [wrapper.__name__ = func.__name__] & [wrapper.__doc__ = func.__doc__]
+    @wraps(
+        func
+    )  # works like [wrapper.__name__ = func.__name__] & [wrapper.__doc__ = func.__doc__]
     def wrapper():
         """
         make it upper

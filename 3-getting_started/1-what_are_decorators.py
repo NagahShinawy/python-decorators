@@ -76,7 +76,9 @@ def get_dollar_salary():
     return float(input("salary:"))
 
 
-emp_salary = to_egp(get_dollar_salary)  # <function to_egp.<locals>.wrapper at 0x0000024E4F1710D8>
+emp_salary = to_egp(
+    get_dollar_salary
+)  # <function to_egp.<locals>.wrapper at 0x0000024E4F1710D8>
 
 print(emp_salary)
 
