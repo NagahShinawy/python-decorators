@@ -115,6 +115,7 @@ def username():
 if __name__ == "__main__":
     # todo : very important, Decorators in another way
     # todo: Decorators run before function it is decorating is called?
+    # TODO:  https://stackoverflow.com/questions/341379/decorators-run-before-function-it-is-decorating-is-called
     # TODO: LOOK AT doc.txt
     # x = upper(username()) # TypeError: 'str' object is not callable
     x = upper(username)  # testing <function username at 0x0000022A2991CEE8>
