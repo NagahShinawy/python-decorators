@@ -102,10 +102,12 @@ help(usertext)
 help(info)  # wrapper
 
 print(name())
+print("*" * 100)
 help(
     name
 )  # name function because it was updated by  wrapper.__name__ = func.__name__ & wrapper.__doc__ = func.__doc__
 
+print("#" * 100)
 help(logs)
 
 print(logs.__name__)
