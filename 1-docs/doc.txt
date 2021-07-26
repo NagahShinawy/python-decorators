@@ -60,4 +60,12 @@ def get_user_name():
 
 
 - function docs comes from last decorator written so, in this case from bold
-- to update
+- to update use @wraps(func)
+
+==============================================================================
+TypeError: themes() got multiple values for argument 'color'
+
+def themes(color="white", *args):
+    print(color)
+
+themes("red", color="blue") # TypeError: themes() got multiple values for argument 'color'
