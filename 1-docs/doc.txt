@@ -69,3 +69,6 @@ def themes(color="white", *args):
     print(color)
 
 themes("red", color="blue") # TypeError: themes() got multiple values for argument 'color'
+
+
+https://stackoverflow.com/questions/7492068/python-class-decorator-arguments
