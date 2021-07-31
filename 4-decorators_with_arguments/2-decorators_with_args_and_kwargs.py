@@ -1,9 +1,8 @@
 """
 created by Nagaj at 26/07/2021
 """
+from functools import wraps, lru_cache
 from time import perf_counter
-from functools import wraps
-
 
 users = ["john", "james", "leon", "smith", "sara"]
 MIN_PASSWORD_LENGTH = 8
@@ -11,7 +10,6 @@ total_duration = 0
 
 
 def timer(function):
-
     @wraps(function)
     def wrapper(*args, **kwargs):
         global total_duration
@@ -23,6 +21,7 @@ def timer(function):
         print(f"{function.__name__}{args} = {result} -> {duration:.8f}s")
         # print("Duration: {:.2f}".format(duration))
         return result
+
     return wrapper
 
 
@@ -39,6 +38,7 @@ def validate(function):
     return wrapper
 
 
+@lru_cache(maxsize=None)  # if value processed before get it from cache, not process it again (optimized solution)
 @timer
 def fib(n):
     if n < 2:

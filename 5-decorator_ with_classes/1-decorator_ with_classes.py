@@ -38,8 +38,6 @@ class Count:
         # self.count = 0
 
     def __call__(self, *args, **kwargs):  # act like wrapper
-        # self.count += 1
-        # print(f"Current Count: {self.count}")
         text = self.func(*args, **kwargs)
         return len(text)
 
@@ -59,6 +57,9 @@ class Validate:
             raise ValueError("pwd can not be less than 8 chars")
         print("Your Password is safe")
         return text
+
+    def __str__(self):
+        return f"Validate({self.function.__name__})"
 
 
 length = username()
@@ -86,7 +87,7 @@ def password2():
     return "Mypwd77"
 
 
-@Validate
+@Validate  # run class "Validator" with input "password3", so "password3" is "Validator" obj
 def password3():
     """
     user password
