@@ -3,11 +3,10 @@ created by Nagaj at 26/07/2021
 """
 from functools import wraps
 
-
 PUNCTUATION = r"""!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"""
 
 
-def remove_punctuation(function):
+def count_punctuation(function):
     def wrapper(text: str):
         counts = 0
         for char in text:
@@ -19,7 +18,7 @@ def remove_punctuation(function):
     return wrapper
 
 
-def munch(start, end):
+def munch(start, end):  # capture args of decorator
 
     def do_munch(function):
         @wraps(function)
@@ -31,7 +30,9 @@ def munch(start, end):
             result = staring_text + xs + ending_text
 
             return result
+
         return wrapper
+
     return do_munch
 
 
@@ -48,10 +49,11 @@ def munch2(function):
         # result = staring_text + xs + ending_text
 
         return result
+
     return wrapper2
 
 
-@remove_punctuation
+@count_punctuation
 def user_feedback(text):
     print(f"Feedback <{text}> was sent")
     print("Thanks for you feedback")
